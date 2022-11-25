@@ -1,3 +1,5 @@
+// ignore_for_file: annotate_overrides, avoid_unnecessary_containers
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -5,7 +7,8 @@ import 'package:http/http.dart' as http;
 
 Future<Album> fetchAlbum() async {
   final response = await http.get(Uri.parse(
-      'https://lets-travel-srilanka-gyknp.ondigitalocean.app/api/videos?filters[place][id][\$eqi]=15'));
+    'https://lets-travel-srilanka-gyknp.ondigitalocean.app/api/videos?filters[place][id][\$eqi]=15',
+  ));
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
@@ -22,17 +25,18 @@ class Album {
   final int id;
   final String channel;
   final String title;
+  final String image;
 
-  const Album({required this.id, required this.channel, required this.title});
+  const Album({required this.id, required this.channel, required this.title, required this.image});
 
   factory Album.fromJson(Map<String, dynamic> json) {
     return Album(
-        id: json['id'], channel: json['channel'], title: json['title']);
+        id: json['id'], channel: json['channel'], title: json['title'], image: json['image']);
   }
 }
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 //
 // void getHttp() async {
@@ -80,7 +84,7 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {
                   fetchAlbum();
                 },
-                icon: Icon(Icons.menu_open_outlined),
+                icon: const Icon(Icons.menu_open_outlined),
                 color: Colors.black,
               )
             ],
@@ -91,14 +95,15 @@ class _MyAppState extends State<MyApp> {
                 Container(
                   child: SingleChildScrollView(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                       child: Column(
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 30,
                           ),
                           Row(
-                            children: [
+                            children: const [
                               SizedBox(
                                 width: 20,
                               ),
@@ -108,12 +113,12 @@ class _MyAppState extends State<MyApp> {
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
-                          Text(
+                          const Text(
                               "Jaffna Public Library (Tamil: யாழ் பொது நூலகம்) Is Located In Jaffna, Sri Lanka. It Is One Of Jaffna's Most Notable Landmarks, And Is Run By The Jaffna Municipal Council. The Library Was Built In 1933 And Burnt In 1981. During The Early 1980s, It Was One Of The Biggest Libraries In Asia, Containing Over 97,000 Books And Manuscripts.[2][3] Over A Million Books Burned In The 1981 Arson Attack. Some Ancient Sinhala And Tamil Books Were Never Recovered. In 2001, Rehabilitation Of The Library Was Completed, With New Structures Being Built And New Books Received, Although Its Old Books And Manuscripts Were Not Replaced. It Is Sri Lanka's Second Main Public Library, Only Rivalled By Colombo Public Library"),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           SizedBox(
@@ -122,7 +127,7 @@ class _MyAppState extends State<MyApp> {
                             child: Image.asset("images/jaffna.jpg",
                                 fit: BoxFit.cover),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                         ],
@@ -139,7 +144,7 @@ class _MyAppState extends State<MyApp> {
                         child: Column(
                           children: <Widget>[
                             Container(
-                              child: TabBar(
+                              child: const TabBar(
                                 labelColor: Colors.black,
                                 unselectedLabelColor: Colors.black,
                                 tabs: [
@@ -151,12 +156,12 @@ class _MyAppState extends State<MyApp> {
                                 ],
                               ),
                             ),
-                            Container(
+                            SizedBox(
                               height: 400, //height of TabBarView
 
                               child: TabBarView(children: <Widget>[
                                 Container(
-                                  child: Center(
+                                  child: const Center(
                                     child: Text('Display Tab 1',
                                         style: TextStyle(
                                             fontSize: 22,
@@ -179,7 +184,7 @@ class _MyAppState extends State<MyApp> {
                                   ),
                                 ),
                                 Container(
-                                  child: Center(
+                                  child: const Center(
                                     child: Text('Display Tab 3',
                                         style: TextStyle(
                                             fontSize: 22,

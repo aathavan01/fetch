@@ -1,3 +1,5 @@
+// ignore_for_file: annotate_overrides, avoid_unnecessary_containers, sized_box_for_whitespace
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -45,7 +47,7 @@ class Album {
 }
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -83,7 +85,7 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {
                   fetchAlbum();
                 },
-                icon: Icon(Icons.menu_open_outlined),
+                icon: const Icon(Icons.menu_open_outlined),
                 color: Colors.black,
               )
             ],
@@ -94,15 +96,15 @@ class _MyAppState extends State<MyApp> {
                 Container(
                   child: SingleChildScrollView(
                     child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
+                      padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 10, 0),
                       child: Column(
                         children: [
-                          SizedBox(
+                          const SizedBox(
                             height: 30,
                           ),
                           Row(
                             children: [
-                              SizedBox(
+                              const SizedBox(
                                 width: 20,
                               ),
                               FutureBuilder<Album>(
@@ -120,7 +122,7 @@ class _MyAppState extends State<MyApp> {
                               ),
                             ],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 20,
                           ),
                           FutureBuilder<Album>(
@@ -136,7 +138,7 @@ class _MyAppState extends State<MyApp> {
                               return const CircularProgressIndicator();
                             },
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           SizedBox(
@@ -145,7 +147,7 @@ class _MyAppState extends State<MyApp> {
                              child: Image.asset("images/jaffna.jpg",
                                  fit: BoxFit.cover),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                         ],
@@ -162,7 +164,7 @@ class _MyAppState extends State<MyApp> {
                         child: Column(
                           children: <Widget>[
                             Container(
-                              child: TabBar(
+                              child: const TabBar(
                                 labelColor: Colors.black,
                                 unselectedLabelColor: Colors.black,
                                 tabs: [
@@ -179,7 +181,7 @@ class _MyAppState extends State<MyApp> {
 
                               child: TabBarView(children: <Widget>[
                                 Container(
-                                  child: Center(
+                                  child: const Center(
                                     child: Text('Display Tab 1',
                                         style: TextStyle(
                                             fontSize: 22,
@@ -212,7 +214,7 @@ class _MyAppState extends State<MyApp> {
                                   ),
                                 ),
                                 Container(
-                                  child: Center(
+                                  child: const Center(
                                     child: Text('Display Tab 3',
                                         style: TextStyle(
                                             fontSize: 22,
